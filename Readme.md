@@ -1,4 +1,4 @@
-<h1 id="home">Projeto: API  Tarefas e Empresas :wave:</h1>
+<h1 id="home">Projeto: API  Tarefas e Empresas :wave:  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"  align="right" height="100em"/></h1>
 
 <h4>
  Api Simples feita com Intuito de Estudos na tecnologia Asp.Net Core. :smile:

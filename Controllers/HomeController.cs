@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using DesafioBackend.DTO;
 
 namespace DesafioBackend.Controllers
 {
@@ -23,7 +24,7 @@ namespace DesafioBackend.Controllers
         //
         //String de Conexao Local 
         //
-        private string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\DesafioBackend\BD\DataBase.mdf;Integrated Security=True;Connect Timeout=30";
+        private string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TarefasEmpresa\BD\DataBase.mdf;Integrated Security=True;Connect Timeout=30";
 
 
         // Lista de Empresas p/ Retornos
@@ -39,10 +40,12 @@ namespace DesafioBackend.Controllers
         List<Tarefas> tarefas = new List<Tarefas>();
 
 
+        // -----------EMPRESAS-----------
+
         //GET: api/Home/Empresas
         [Route("Empresas")]
         [HttpGet]
-        public IActionResult GetAllEmpresas()
+        public IActionResult AllEmpresas()
         {
             try
             {
@@ -93,7 +96,7 @@ namespace DesafioBackend.Controllers
         //GET : api/Home/Empresas/{id}
         [HttpGet]
         [Route("Empresas/{id:int}")]
-        public IActionResult GetEmpresasById(int id)
+        public IActionResult EmpresasById(int id)
         {
             try
             {
@@ -146,7 +149,7 @@ namespace DesafioBackend.Controllers
         //POST : api/Home/Empresas/Add 
         [HttpPost]
         [Route("Empresas/Add")]
-        public IActionResult Add(Empresas emp)
+        public IActionResult AdicionarEmpresas(Empresas emp)
         {
             try
             {
@@ -182,7 +185,7 @@ namespace DesafioBackend.Controllers
         //PUT : api/Home/Empresas/Alterar
         [HttpPost]
         [Route("Empresas/Alterar")]
-        public IActionResult Alterar(Empresas emp)
+        public IActionResult AlterarEmpresa(EmpresasDTO emp)
         {
             try
             {
@@ -225,7 +228,7 @@ namespace DesafioBackend.Controllers
         //Delete : api/Home/Empresas/Delete/id
         [HttpDelete]
         [Route("Empresas/Delete/{id:int}")]
-        public IActionResult Delete(int id)
+        public IActionResult DelecaoEmpresa(int id)
         {
             try
             {
@@ -257,11 +260,12 @@ namespace DesafioBackend.Controllers
             }
         }
 
+        // -----------TAREFAS-----------
 
         //Get: api/Home/Tarefas
         [Route("Tarefas")]
         [HttpGet]
-        public IActionResult GetAllTArefas()
+        public IActionResult AllTArefas()
         {
             try
             {
@@ -283,6 +287,7 @@ namespace DesafioBackend.Controllers
                             {
                                 while (reader.Read())
                                 {
+                                    var x = reader.GetOrdinal("StatusTarefa");
                                     Tarefas tarefa = new Tarefas()
                                     {
                                         IdTarefa = Convert.ToInt32(reader["IdTarefa"]),
@@ -291,7 +296,7 @@ namespace DesafioBackend.Controllers
                                         NomeEmpresa = reader["Nome"].ToString(),
                                         Local = reader["Local"].ToString(),
                                         Data = Convert.ToDateTime(reader["Data"]).ToString("dd/MM/yyyy : HH:mm"),
-                                        StatusTarefa = (reader["StatusTarefa"] as int? == 0) ? true : false
+                                        StatusTarefa = reader.GetBoolean(x)
                                     };
 
 
@@ -315,7 +320,7 @@ namespace DesafioBackend.Controllers
         //Get: api/Home/Tarefas/id
         [Route("Tarefas/{id:int}")]
         [HttpGet]
-        public IActionResult GetTarefasById(int id)
+        public IActionResult TarefasById(int id)
         {
             try
             {
@@ -338,15 +343,17 @@ namespace DesafioBackend.Controllers
                             {
                                 while (reader.Read())
                                 {
+                                    var x = reader.GetOrdinal("StatusTarefa");
                                     Tarefas tarefa = new Tarefas()
                                     {
+
                                         IdTarefa = Convert.ToInt32(reader["IdTarefa"]),
                                         Descricao = reader["Descricao"].ToString(),
                                         IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
                                         NomeEmpresa = reader["Nome"].ToString(),
                                         Local = reader["Local"].ToString(),
                                         Data = Convert.ToDateTime(reader["Data"]).ToString("dd/MM/yyyy : HH:mm"),
-                                        StatusTarefa = (reader["StatusTarefa"] as int? == 0) ? true : false
+                                        StatusTarefa = reader.GetBoolean(x)
                                     };
 
 
@@ -362,6 +369,51 @@ namespace DesafioBackend.Controllers
                 return Ok(listTarefas.ToArray());
             }
             catch (Exception ex) { return BadRequest($"Ocorreu um Erro: {ex}"); }
+        }
+
+
+        //--DESENVOLVIMENTO--//
+
+        //Get: api/Home/Tarefas/
+        [Route("Tarefas/Add")]
+        [HttpPost]
+        public IActionResult AddTarefa(TarefasDTO tar)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnectionString))
+                {
+                    if (con.State != ConnectionState.Open)
+                    {
+                        con.Open();
+                        using (SqlCommand comm = new SqlCommand())
+                        {
+                            bool istrue = false;
+                            string chck;
+                            comm.Connection = con;
+                            comm.CommandText = @" Insert Into Tarefas values
+                            (Descricao = @descricao, IdEmpresa = @idempresa, Local = @local, Data = @data, StatusTarefa = @sttstarefa)";
+                            comm.Parameters.AddWithValue("descricao", tar.Descricao);
+                            comm.Parameters.AddWithValue("idempresa", tar.IdEmpresa);
+                            comm.Parameters.AddWithValue("local", tar.Local);
+                            comm.Parameters.AddWithValue("data", tar.Data);
+                            chck = tar.Statustarefa.ToString();
+
+                            // Checa se o valor irá ser verdadeiro ou falso
+                            if (chck == "true") istrue = !istrue;
+                            comm.Parameters.AddWithValue("sttstarefa", istrue);
+
+                            comm.ExecuteNonQuery();
+                        }
+                        con.Close();
+                    }
+                    return Ok("Tarefa Adiconada com Sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Ocorreu Um Erro: {ex}");
+            }
         }
 
     }

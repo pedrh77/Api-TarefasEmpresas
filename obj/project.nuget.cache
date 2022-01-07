@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ndAjFH7M8ww9s8YZw9VFDOmYW3h3LBwywOT2KD/fT/+6plKpOdRqZdq5RXDb2HdcyPWczZTn2YXheGLR637Yg==",
+  "dgSpecHash": "QAC45qFOlx6yyGiSpopH8YLg1EvA972+zJ508hBuGhpvQ3nLsQwPD4M4VAYWpSoxvewGFn7YSP3lnKzxDh1rxg==",
   "success": true,
-  "projectFilePath": "D:\\DesafioBackend\\DesafioBackend.csproj",
+  "projectFilePath": "D:\\TarefasEmpresa\\DesafioBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

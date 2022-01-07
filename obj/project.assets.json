@@ -643,11 +643,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DesafioBackend\\DesafioBackend.csproj",
+      "projectUniqueName": "D:\\TarefasEmpresa\\DesafioBackend.csproj",
       "projectName": "DesafioBackend",
-      "projectPath": "D:\\DesafioBackend\\DesafioBackend.csproj",
+      "projectPath": "D:\\TarefasEmpresa\\DesafioBackend.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "D:\\DesafioBackend\\obj\\",
+      "outputPath": "D:\\TarefasEmpresa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

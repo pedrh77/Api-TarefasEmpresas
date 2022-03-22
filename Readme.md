@@ -1,5 +1,8 @@
 <h1 id="home">Projeto: API  Tarefas e Empresas :wave:  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"  align="right" height="100em"/></h1>
 
+- :heavy_check_mark: ADO.NET 
+- :x: Entity Framework
+
 <h4>
  Api Simples feita com Intuito de Estudos na tecnologia Asp.Net Core. :smile:
 <br>

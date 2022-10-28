@@ -1,0 +1,15 @@
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\bin\Debug\net5.0\DOMAIN.TarefasEmpresas.deps.json
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\bin\Debug\net5.0\DOMAIN.TarefasEmpresas.runtimeconfig.json
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\bin\Debug\net5.0\DOMAIN.TarefasEmpresas.runtimeconfig.dev.json
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\bin\Debug\net5.0\DOMAIN.TarefasEmpresas.dll
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\bin\Debug\net5.0\DOMAIN.TarefasEmpresas.pdb
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.csproj.AssemblyReference.cache
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.AssemblyInfoInputs.cache
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.AssemblyInfo.cs
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.csproj.CoreCompileInputs.cache
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.dll
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\refint\DOMAIN.TarefasEmpresas.dll
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.pdb
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\DOMAIN.TarefasEmpresas.genruntimeconfig.cache
+C:\dev\TarefasEmpresas\DOMAIN.TarefasEmpresas\obj\Debug\net5.0\ref\DOMAIN.TarefasEmpresas.dll
